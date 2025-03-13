@@ -1,0 +1,45 @@
+Тест № 1: простой тест
+$ python3 wc.py test_files/long_line.txt
+
+Тест № 2: тест с несколькими файлами
+$ python3 wc.py test_files/simple_test test_files/less_than_10_lines.txt
+
+Тест № 3: тестируем большой файл
+$ seq 1 1000000 > test_files/large_file.txt
+$ python3 wc.py test_files/large_file.txt
+
+Тест № 4: простой тест на подсчет
+$ python3 wc.py test_files/single_line.txt
+
+Тест № 5: тест с нестандартными символами в самом файле
+$ python3 wc.py test_files/special_chars.txt
+
+Тест № 6: передаем несуществующий файл
+$ python3 wc.py non_existent_file.txt
+
+Тест № 7: тест на передачу директории
+$ python3 wc.py artifacts
+
+Тест № 8: создадим символическую ссылку и скормим ее скрипту
+$ ln -s file1.txt symlink.txt
+$ python3 wc.py symlink.txt
+
+Тест № 9: тест с пробелами в названии
+$ echo "File with spaces" > test_files/"file with spaces.txt"
+$ python3 wc.py test_files/"file with spaces.txt"
+
+Тест № 10: тест с нестандартными символами в самом файле
+$ python3 wc.py test_files/special_chars.txt
+
+Тест № 11:
+$ head -c 100 /dev/urandom > binary_data.bin
+$ python3 wc.py binary_data.bin
+
+Тест № 12: тест с разными кодировками
+$ echo -e "Пsdcsdcds sdcsdc\nsdcsdcs" > test_files/utf8_file.txt
+$ echo -e "sdfsdcsd \n sdcsdc" | iconv -f UTF-8 -t ISO-8859-1 > test_files/iso8859_file.txt
+$ python3 wc.py test_files/utf8_file.txt test_files/iso8859_file.txt
+
+Тест № 13: тест с нестандартными символами в названии
+$ python3 wc.py test_files/file@with#special.txt
+

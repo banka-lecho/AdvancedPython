@@ -1,0 +1,34 @@
+Тест № 1: тестим скрипт с одним файлом
+$ python3 tail.py test_files/long_line.txt
+
+Тест № 2: передаем не файл, а директорию
+$ python3 tail.py artifacts
+
+Тест № 3: тестим скрипт без файлов (чтение из stdin)
+$ cat test_files/simple_test | python3 tail.py
+
+Тест № 4: тестим скрипт с большим количеством строк в stdin
+$ seq 1 30 | python3 tail.py
+
+Тест № 5: тестим файл с одной строкой
+$ python3 tail.py test_files/single_line.txt
+
+Тест № 6: подаем файл, в котором меньше строк чем потребуется вывести
+$ seq 1 5 > test_files/less_than_10_lines.txt
+$ python3 tail.py test_files/less_than_10_lines.txt
+
+Тест № 7: аналогично прошлому только наоборот
+$ seq 1 20 > test_files/more_than_10_lines.txt
+$ python3 tail.py test_files/more_than_10_lines.txt
+
+Тест № 8: файл с правами доступа только на чтение
+$ echo "Read-only file" > test_files/read_only.txt
+$ chmod 400 test_files/read_only.txt
+$ python3 tail.py test_files/read_only.txt
+
+Тест № 9: файл с нестандартными символами в имени
+$ echo "File with special chars" > test_files/"file@with#special$chars.txt"
+$ python3 tail.py test_files/"file@with#special$chars.txt"
+
+Тест № 10: передаем больше одного файла
+$ python3 tail.py test_files/more_than_10_lines.txt test_files/simple_test

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_cli_tool"
+version = "0.1.0"
+description = "A CLI tool"
+authors = [
+    { name = "Anastasiya Shpileva", email = "shpilyova.nastya@mail.ru" }
+]
+dependencies = [
+    "pip>=24.3.1",
+    "setuptools>=75.8.0",
+    "wheel>=0.45.1"
+]

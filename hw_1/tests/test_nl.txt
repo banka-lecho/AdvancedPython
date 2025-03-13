@@ -1,0 +1,22 @@
+Тест № 1: простой тест
+$ python3 nl.py test_files/simple_test
+
+Тест № 2: простой тест
+$ echo -e "Line 1\nLine 2\nLine 3" | python3 nl.py
+
+Тест № 3: простой тест
+$ echo -e "Line 1\n\nLine 3" | python3 nl.py
+
+Тест № 4: пустой файл -> пустой вывод
+$ touch test_files/empty.txt
+$ python3 nl.py test_files/empty.txt
+
+Тест № 5: тест со специальными символами в файле
+$ python3 nl.py test_files/special_chars.txt
+
+Тест № 6: тестим последовательность команд
+$ seq 1 100 | python3 nl.py | tail -n 5
+
+Тест № 7: тестим большой файл
+$ python3 -c 'print("Abc" * 1000)' > test_files/long_line.txt
+$ python3 nl.py test_files/long_line.txt
