@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  latex-generator:
+    image: texlive/texlive:latest
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: >
+      sh -c "
+        pip install -r requirements.txt &&                # Устанавливаем зависимости (если есть)
+        python task_1_2.py &&                             # Генерируем .tex
+        pdflatex ./artifacts/table_image.tex &&           # Компилируем в PDF
+        cp generated.pdf ./artifacts/generated.pdf        # Копируем результат
+      "
